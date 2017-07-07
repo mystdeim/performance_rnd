@@ -14,7 +14,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-mainClassName = 'vertx_rest.VertxThymeleafApp'
+mainClassName = 'vertx_thymeleaf.VertxThymeleafApp'
 
 shadowJar {
     archiveName = "fatjar.jar"

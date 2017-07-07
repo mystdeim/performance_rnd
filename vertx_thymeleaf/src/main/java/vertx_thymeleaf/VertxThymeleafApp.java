@@ -12,7 +12,11 @@ public class VertxThymeleafApp {
         VertxOptions options = new VertxOptions();
         Vertx vertx = Vertx.vertx(options);
         vertx.deployVerticle(RestVerticle.class.getName(), new DeploymentOptions().setInstances(8), event -> {
-            out.println("Started Application!");
+            if (event.succeeded()) {
+                out.println("Started Application!");
+            } else {
+                event.cause().printStackTrace();
+            }
         });
     }
 }
