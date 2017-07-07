@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '1.2.3'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile "io.vertx:vertx-web:$vertx"
+    compile "io.vertx:vertx-mysql-postgresql-client:$vertx"
+    compile "org.slf4j:slf4j-api:$slf4j_api"
+    testCompile 'junit:junit:4.12'
+}
+
+mainClassName = 'vertx_rest_db.VertxRestDBApp'
+
+shadowJar {
+    archiveName = "fatjar.jar"
+    mergeServiceFiles {
+        include 'META-INF/services/io.vertx.core.spi.VerticleFactory'
+    }
+}
+
+build.dependsOn(shadowJar)
