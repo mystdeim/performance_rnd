@@ -3,7 +3,7 @@ package vertx_thymeleaf;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.templ.TemplateEngine;
-import io.vertx.ext.web.templ.ThymeleafTemplateEngine;
+import io.vertx.ext.web.templ.JadeTemplateEngine;
 
 import static java.lang.System.out;
 
@@ -14,11 +14,11 @@ public class RestVerticle extends AbstractVerticle {
 
         final Router router = Router.router(vertx);
 
-        TemplateEngine engine = ThymeleafTemplateEngine.create();
+        TemplateEngine engine = JadeTemplateEngine.create();
 
         router.route("/test/").handler(ctx -> {
             ctx.put("title", "Home page!");
-            engine.render (ctx, "templates/", "home.html", res -> {
+            engine.render (ctx, "templates/", "home.jade", res -> {
                 if (res.succeeded()) {
                     ctx.response().end(res.result());
                 } else {
@@ -32,6 +32,6 @@ public class RestVerticle extends AbstractVerticle {
                 .requestHandler(router::accept)
                 .listen(8080);
 
-        out.println("Deployed VertxThymeleafApp on http://localhost:8080");
+        out.println("Deployed VertxJadeApp on http://localhost:8080");
     }
 }

@@ -6,6 +6,8 @@
 sudo apt update
 sudo apt install wrk
 sudo apt install postgresql postgresql-contrib
+sudo apt install python3-pip
+pip3 install jupyter
 ```
 
 ### DB

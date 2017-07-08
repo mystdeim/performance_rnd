@@ -10,12 +10,11 @@ repositories {
 
 dependencies {
     compile "io.vertx:vertx-web:$vertx"
-    compile "io.vertx:vertx-web-templ-thymeleaf:$vertx"
-    compile "org.slf4j:slf4j-api:$slf4j_api"
+    compile "io.vertx:vertx-web-templ-jade:$vertx"
     testCompile 'junit:junit:4.12'
 }
 
-mainClassName = 'vertx_thymeleaf.VertxThymeleafApp'
+mainClassName = 'vertx_thymeleaf.VertxJadeApp'
 
 shadowJar {
     archiveName = "fatjar.jar"

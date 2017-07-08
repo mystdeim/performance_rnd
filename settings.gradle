@@ -24,4 +24,5 @@ include 'vertx_rest_jdbc'
 include 'vertx'
 include 'springboot_thymeleaf'
 include 'vertx_thymeleaf'
+include 'vertx_jade'
 
